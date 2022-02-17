@@ -81,21 +81,26 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    MyStore
-                    <img src="{{ asset('img/index.png')  }}" width="300" height="300"/>
+                @if ($id == 'Bisolvon')
+                    <div>
+                        <h3>{{$id}}</h3>
+                        <div class='cards' style="border-style:solid; float:left;" href="">
+                            <img src="{{ asset('img/Bisolvon.jpg')  }}" width="300" height="300"/>
+                            Bisolvon Tablet adalah obat dengan kandungan bahan aktif bromhexine HCl, yang merupakan agen mukolitik yang bekerja mengencerkan dan menipiskan dahak. Obat ini dapat mengatasi dan meredakan batuk berdahak. Setiap tablet Bisolvon Tablet mengandung 8 mg bromhexine HCl. 
+                        </div>  
+                        
+                    </div>
+                @elseif ($id == 'Allerin')
+                <div>
+                    <h3>{{$id}}</h3>
+                    <div class='cards' style="border-style:solid; float:left;" href="">
+                        <img src="{{ asset('img/Allerin.jpg')  }}" width="300" height="300"/>
+                        Allerin Expectorant adalah obat dengan kandungan bahan aktif glyceryl guaiacolate, natrium citrate, diphenhydramine, dan pseudoephedrine. Obat ini bekerja sebagai ekspektoran, antitusif, antihistamin, sekaligus dekongestan hidung. Obat ini dapat mengatasi beberapa jenis batuk seperti batuk spasmodik (batuk tiba-tiba yang sulit dihentikan), batuk berdahak, hingga iritasi.  
+                    </div>  
+                    
                 </div>
-
-                <div class="links">
-                    <a href="http://127.0.0.1:8000/catalog/medicines">Medicines</a>
-                    <a href="http://127.0.0.1:8000/catalog/equip">Medical Equipment</a>
-                    <!-- <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a> -->
+                @endif
+                    
                 </div>
             </div>
         </div>

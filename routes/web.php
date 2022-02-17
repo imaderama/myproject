@@ -24,8 +24,21 @@ Route::get('rama', function () {
 });
 
 Route::get('catalog', function () {
-    return "Medicines";
+    return view('myproject');
 });
+
+Route::get('catalog/medicines', function () {
+    return view('catalog', ['tipe'=>'medicine']);
+});
+
+Route::get('catalog/equip', function () {
+    return view('catalog', ['tipe'=>'equipment']);
+});
+
+Route::get('catalog/medicines/{id}', function ($id) {
+    return view('detail', ['id'=>$id]);
+});
+
 
 Route::get('wfp/{kelas?}',function ($kelas = "C") {
     //Apabila bukan Kelas C,
