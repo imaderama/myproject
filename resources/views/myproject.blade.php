@@ -82,7 +82,7 @@
             <div class="content">
                 <div class="title m-b-md">
                     MyStore
-                    <img src="{{ asset('img/index.png')  }}" width="300" height="300"/>
+                    <img src="{{ asset('img/index.jpg')  }}" width="300" height="300"/>
                 </div>
 
                 <div class="links">

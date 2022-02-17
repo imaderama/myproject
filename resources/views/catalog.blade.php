@@ -99,7 +99,21 @@
                         
                     </div>
                     @else
-                    Medicines Equipment
+                    <div>
+                        <h3>Medicines Equipment</h3>
+                        <div class='cards' style="border-style:solid; float:left;">
+                            <img src="{{ asset('img/Stethoscope.png')  }}" width="300" height="300"/>
+                            <div class='cards-title'>
+                                <a href="http://127.0.0.1:8000/catalog/equipment/stethoscope">Stethoscope</a>
+                            </div>
+                        </div>
+                        <div class='cards' style="border-style:solid; float:left;">
+                            <img src="{{ asset('img/Thermometer.jpg')  }}" width="300" height="300"/>
+                            <div class='cards-title'>
+                            <a href="http://127.0.0.1:8000/catalog/equipment/thermometer">Thermometer</a>
+                            </div>
+                        </div>
+                    </div>
                     @endif
                     
                     <!-- <img src="{{ asset('img/index.png')  }}" width="300" height="300"/> -->

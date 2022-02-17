@@ -39,6 +39,10 @@ Route::get('catalog/medicines/{id}', function ($id) {
     return view('detail', ['id'=>$id]);
 });
 
+Route::get('catalog/equipment/{id}', function ($id) {
+    return view('detail', ['id'=>$id]);
+});
+
 
 Route::get('wfp/{kelas?}',function ($kelas = "C") {
     //Apabila bukan Kelas C,

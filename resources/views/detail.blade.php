@@ -99,6 +99,24 @@
                     </div>  
                     
                 </div>
+                @elseif ($id == 'stethoscope')
+                <div>
+                    <h3>{{$id}}</h3>
+                    <div class='cards' style="border-style:solid; float:left;" href="">
+                        <img src="{{ asset('img/Stethoscope.png')  }}" width="300" height="300"/>
+                        Stetoskop (bahasa Yunani: stethos, dada dan skopeein, memeriksa) adalah sebuah alat medis akustik untuk memeriksa suara dalam tubuh. Dia banyak digunakan untuk mendengar suara jantung dan pernapasan, meskipun dia juga digunakan untuk mendengar intestine dan aliran darah dalam arteri dan "vein".
+                    </div>  
+                    
+                </div>
+                @elseif ($id == 'thermometer')
+                <div>
+                    <h3>{{$id}}</h3>
+                    <div class='cards' style="border-style:solid; float:left;" href="">
+                        <img src="{{ asset('img/Thermometer.jpg')  }}" width="300" height="300"/>
+                        Termometer adalah alat yang digunakan untuk mengukur suhu (temperatur), ataupun perubahan suhu. Istilah termometer berasal dari bahasa Latin thermo yang berarti panas dan meter yang berarti untuk mengukur. Prinsip kerja termometer ada bermacam-macam, yang paling umum digunakan adalah termometer air raksa.
+                    </div>  
+                    
+                </div>
                 @endif
                     
                 </div>
