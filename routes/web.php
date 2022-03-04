@@ -61,3 +61,6 @@ Route::get('wfp/{kelas?}',function ($kelas = "C") {
 Route::get('greeting',function(){
     return view('welcome', ['name' => 'Rama']);
 });
+
+Route::resource('obat','ProductController');
+Route::resource('kategori_obat','CategoryController');
