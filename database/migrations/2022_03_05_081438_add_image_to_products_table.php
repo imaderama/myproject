@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ModifyColumnDescriptionCategoriesTable extends Migration
+class AddImageToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class ModifyColumnDescriptionCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('Description')->nullable()->change();
+        Schema::table('products', function (Blueprint $table) {
+            $table->string('image');
         });
     }
 
@@ -25,8 +25,8 @@ class ModifyColumnDescriptionCategoriesTable extends Migration
      */
     public function down()
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->string('Description')->nullable(false)->change();
+        Schema::table('products', function (Blueprint $table) {
+            $table->dropColumn('image');
         });
     }
 }

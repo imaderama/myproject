@@ -26,6 +26,8 @@ class ProductController extends Controller
         //Eloquent
         $listdata= Product::all();
 
+        // $listdata= DB::select(DB::raw('select * from products where category = 5'));
+
         return view('product.index',compact('listdata'));
         
     }
