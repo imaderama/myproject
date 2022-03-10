@@ -63,4 +63,5 @@ Route::get('greeting',function(){
 });
 
 Route::resource('obat','ProductController');
+Route::resource('medicine','MedicineController');
 Route::resource('kategori_obat','CategoryController');
