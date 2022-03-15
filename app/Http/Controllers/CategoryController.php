@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Medicine;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,6 +22,49 @@ class CategoryController extends Controller
         //Eloquent
         $allcategory = Category::all();
         return view('report.allcategory', compact('allcategory'));
+    }
+
+    public function aggregation()
+    {
+        //Query Builder
+        $data = DB::table('categories')
+                ->join('medicines','categories.id','=','medicines.category_id')
+                ->select('categories.id', 'categories.name')
+                ->groupBy('categories.id', 'categories.name')
+                ->get();
+        $getTotalData = $data->count();
+
+        
+
+        //Eloquent
+
+        $data2 = Category::whereNotIn('id',function($q){
+            $q->select('category_id')->from('medicines');
+        })->get();
+
+        $data3 = Category::select('name', DB::raw('avg(medicines.price) as average'))
+                ->leftjoin('medicines','categories.id','=','medicines.category_id')
+                ->groupBy('categories.name')
+                ->get();
+
+        $data4 = Category::select('name', DB::raw('count(medicines.id) as total'))
+                ->leftjoin('medicines','categories.id','=','medicines.category_id')
+                ->groupBy('categories.name')
+                ->havingRaw('count(medicines.id) = 1')
+                ->get();
+
+        $data5 = Medicine::select('generic_name', DB::raw('count(generic_name) as total'))
+                ->groupBy('generic_name')
+                ->havingRaw('count(generic_name) = 1')
+                ->get();
+
+        $data6 = Category::select('name', 'medicines.generic_name', 'medicines.price')
+                ->leftjoin('medicines','categories.id','=','medicines.category_id')
+                ->orderBy('medicines.price', 'desc')
+                ->first();
+
+        return view('report.aggregation', compact('getTotalData', 'data2', 'data3', 'data4', 'data5','data6'));
+        
     }
 
     /**
