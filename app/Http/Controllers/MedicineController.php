@@ -15,8 +15,25 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        //
+        $allmedicines = DB::table('medicines')->get();
+
+        //Eloquent
+        // $allmedicines = Medicine::all();
+        return view('report.meds_name_form_price', compact('allmedicines'));
     }
+
+    public function showMedicinesAndCategories()
+    {
+        $data = DB::table('medicines')
+                        ->join('categories','categories.id','=','medicines.category_id')
+                        ->get(['medicines.generic_name', 'medicines.form', 'medicines.restriction_formula', 'categories.name']);
+
+        //Eloquent
+        // $allmedicines = Medicine::all();
+        return view('report.meds_name_form_catname', compact('data'));
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

@@ -65,3 +65,9 @@ Route::get('greeting',function(){
 Route::resource('obat','ProductController');
 Route::resource('medicine','MedicineController');
 Route::resource('kategori_obat','CategoryController');
+
+Route::get('/report/allcategory','CategoryController@index')->name('showAllCategory');
+
+Route::get('/report/meds_name_form_price','MedicineController@index')->name('showAllMedicine');
+
+Route::get('/report/meds_name_form_catname','MedicineController@showMedicinesAndCategories')->name('showAllMedicineAndCategory');
