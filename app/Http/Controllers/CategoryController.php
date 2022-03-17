@@ -17,11 +17,11 @@ class CategoryController extends Controller
     public function index()
     {
         //Query Builder
-        $allcategory = DB::table('categories')->get();
+        $datas = DB::table('categories')->get();
 
         //Eloquent
-        $allcategory = Category::all();
-        return view('report.allcategory', compact('allcategory'));
+        $datas = Category::all();
+        return view('category.index', compact('datas'));
     }
 
     public function aggregation()
