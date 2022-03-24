@@ -15,11 +15,11 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        $allmedicines = DB::table('medicines')->get();
+        $listdata = DB::table('medicines')->get();
 
         //Eloquent
         // $allmedicines = Medicine::all();
-        return view('report.meds_name_form_price', compact('allmedicines'));
+        return view('medicine.index', compact('listdata'));
     }
 
     public function showMedicinesAndCategories()
@@ -33,7 +33,15 @@ class MedicineController extends Controller
         return view('report.meds_name_form_catname', compact('data'));
     }
 
-
+    public function showInfo()
+    {
+        $result=Medicine::orderBy('price','DESC')->first();
+        return response()->json(array(
+          'status'=>'oke',
+          'msg'=>"<div class='alert alert-info'>
+          Did you know? <br>The most expensive product is ". $result->generic_name . "</div>"
+        ),200);
+    }
 
     /**
      * Show the form for creating a new resource.

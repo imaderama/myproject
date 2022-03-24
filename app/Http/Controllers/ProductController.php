@@ -42,6 +42,17 @@ class ProductController extends Controller
         //
     }
 
+    public function showInfo()
+    {
+        $result=Medecine::orderBy('harga_produk','DESC')->first();
+        return response()->json(array(
+          'status'=>'oke',
+          'msg'=>"<div class='alert alert-info'>
+          Did you know? <br>The most expensive product is ". $result->nama_produk . "</div>"
+        ),200);
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *

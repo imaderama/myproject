@@ -67,6 +67,18 @@ class CategoryController extends Controller
         
     }
 
+    public function showProducts()
+    {
+        $cat=Category::find($_POST['category_id']);
+        $nama=$cat->nama_kategori;
+        $data=$cat->products;
+        return response()->json(array(
+            'status'=>'oke',
+            'msg'=>view('category.index',compact('nama','data'))->render()
+        ),200);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *

@@ -73,3 +73,9 @@ Route::get('/report/meds_name_form_price','MedicineController@index')->name('sho
 Route::get('/report/meds_name_form_catname','MedicineController@showMedicinesAndCategories')->name('showAllMedicineAndCategory');
 
 Route::get('/report/aggregation','CategoryController@aggregation')->name('aggregation');
+
+Route::post('/products/showInfo','ProductController@showInfo')->name('products.showInfo');
+Route::post('/medicine/index','MedicineController@showInfo')->name('medicine.showInfo');
+Route::post('/category/index','CategoryController@showProducts')->name('category.showProducts');
+
+
